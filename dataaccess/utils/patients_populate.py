@@ -5,7 +5,7 @@ db = client.admin
 patient_details = db.patients
 
 data1 = {
-	"patient_id" : "P0001",
+	"patient_id" : "P1",
 	"patient_name" : "Rahul",
 	"dob" : "24/11/1997",
 	"city_of_birth" : "Bangalore",
@@ -17,7 +17,7 @@ data1 = {
 }
 
 data2 = {
-	"patient_id" : "P0002",
+	"patient_id" : "P2",
 	"patient_name" : "Anand",
 	"dob" : "24/11/1997",
 	"city_of_birth" : "Hyderabad",
@@ -29,7 +29,7 @@ data2 = {
 }
 
 data3 = {
-	"patient_id" : "P0003",
+	"patient_id" : "P3",
 	"patient_name" : "Alan",
 	"dob" : "24/11/1997",
 	"city_of_birth" : "Chennai",
