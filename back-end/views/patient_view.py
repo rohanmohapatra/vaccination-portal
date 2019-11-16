@@ -1,5 +1,6 @@
 from flask import Blueprint,Response, jsonify, request
 from dataaccess.get_functions import *
+from flask_cors import CORS, cross_origin
 import json
 
 patient_view = Blueprint('patient_view',__name__)
@@ -10,6 +11,7 @@ def test_patient():
     return Response(status=200)
 
 @patient_view.route("/get_personal_details/<patient_id>", methods=['GET'])
+@cross_origin()
 def get_personal_details_with_id(patient_id):
     print("View Reached with id{}".format(patient_id))
     data = get_patient_metadata(patient_id)
