@@ -4,6 +4,7 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 from app import mongo
+<<<<<<< HEAD
 
 
 
@@ -26,6 +27,8 @@ def add_vaccination_record(patient_id,vacination_name,vacc_id,date_given,validit
     
 
 
+	
+=======
 def push_to_document(collection, query, push_to, content_to_push):
 	"""
 		Function: Use when you want to push to a single document, or to an array.
@@ -99,4 +102,5 @@ def remove_document(collection, query):
 
 	db_collection = mongo.db[str(collection)]
 	result = db_collection.delete_one(query)
-	return result.deleted_count	
+	return result.deleted_count
+>>>>>>> 215e3c09856b959eed2856c5aa83dbe3666e7905
