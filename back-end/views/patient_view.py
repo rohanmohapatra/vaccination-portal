@@ -35,3 +35,18 @@ def get_patient_id():
 def get_patient_vaccination_details_controller(patient_id):
     data = get_patient_vaccination_data(patient_id)
     return jsonify(data[patient_id])
+
+@patient_view.route("/login/", methods=["POST"])
+def patient_login():
+    '''
+    {
+        "username" : "x",
+        "password" : "y"
+    }
+    '''
+    json_data = request.get_json(force=True)
+    query = get_patient_metadata_with_username(json_data["username"])
+    if query["password"] == json_data["password"]:
+        return Response(status=200)
+    else:
+        return Response(status=401)
