@@ -49,9 +49,11 @@ def add_vaccination_type():
 @organization_view.route('/view_patients/<organization_id>',methods=["GET"])
 def view_patients(organization_id):
 	organization_data = get_organization(organization_id)
+	organization_name = organization_data[organization_name]
 	patients_data = organization_data[patients_data]
 	patient_names = []
 	for patient_id in patients_data:
 		patient_metadata = get_patient_metadata(patient_id)
-		patient_name.append(patient_metadata[patient_name])	
-		return jsonify(patient_names), 200
+		patient_name.append(patient_metadata[patient_name])
+		response = { organization_name : patient_names}
+	return jsonify(response), 200
