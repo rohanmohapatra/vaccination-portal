@@ -8,22 +8,22 @@ from app import mongo
 
 
 def add_vaccination_record(patient_id,vacination_name,vacc_id,date_given,validity):
-    vaccination_collection = mongo.db.vaccinations
-    query_result = vaccination_collection.find_one({"_id":patient_id})
-    print(query_result)
-    data = dict()
-    data["vacination_name"] = vacination_name
-    data["vacc_id"] = vacc_id
-    data["date_given"] = date_given
-    data["validity_in_days"] = validity
-    if(query_result == None):
-        vaccination_collection.insert_one({"_id":patient_id, patient_id:[data]})
-    else:
-        update_result = vaccination_collection.update_one(
-            {"_id" : patient_id},
-            {'$push': {patient_id:data}}
-        )
-    
+	vaccination_collection = mongo.db.vaccinations
+	query_result = vaccination_collection.find_one({"_id":patient_id})
+	print(query_result)
+	data = dict()
+	data["vacination_name"] = vacination_name
+	data["vaccination_id"] = vacc_id
+	data["date_given"] = date_given
+	data["validity"] = validity
+	if(query_result == None):
+		vaccination_collection.insert_one({"_id":patient_id, patient_id:[data]})
+	else:
+		update_result = vaccination_collection.update_one(
+			{"_id" : patient_id},
+			{'$push': {patient_id:data}}
+		)
+	
 
 
 def push_to_document(collection, query, push_to, content_to_push):

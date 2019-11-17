@@ -1,0 +1,47 @@
+[
+    {
+        "_id": "VO_0001",
+        "organization_id": "VO_0001",
+        "organization_name": "Columbia Asia",
+        "vaccinations_list": "",
+        "patients_list": "",
+        "username": "COL",
+        "password": "vo@1341"
+    },
+    {
+        "_id": "VO_0002",
+        "organization_id": "VO_0002",
+        "organization_name": "BGS Global Hospital",
+        "vaccinations_list": "",
+        "patients_list": "",
+        "username": "BGS",
+        "password": "vo@1342"
+    },
+    {
+        "_id": "VO_0003",
+        "organization_id": "VO_0003",
+        "organization_name": "Manipal Hospital",
+        "vaccinations_list": "",
+        "patients_list": "",
+        "username": "MAN",
+        "password": "vo@1343"
+    },
+    {
+        "_id": "VO_0004",
+        "organization_id": "VO_0004",
+        "organization_name": "Apollo Hospital",
+        "vaccinations_list": "",
+        "patients_list": "",
+        "username": "APO",
+        "password": "vo@1344"
+    },
+    {
+        "_id": "VO_0005",
+        "organization_id": "VO_0005",
+        "organization_name": "Fortis Hospital",
+        "vaccinations_list": "",
+        "patients_list": "",
+        "username": "FOR",
+        "password": "vo@1345"
+    }
+  ]
