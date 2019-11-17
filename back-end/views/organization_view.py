@@ -18,8 +18,9 @@ def organization_login():
 	json_data = request.get_json(force=True)
 	query = get_organization(json_data["username"])
 	print(query)
+	data = {"organization_id" : query["organization_id"]}
 	if query["password"] == json_data["password"]:
-		return Response(status=200)
+		return jsonify(data)
 	else:
 		return Response(status=401)
 

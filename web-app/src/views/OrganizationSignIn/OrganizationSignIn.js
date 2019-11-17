@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { Link as RouterLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import validate from 'validate.js';
-import sha1 from 'sha1';
 import { makeStyles } from '@material-ui/styles';
 import {
   Grid,
@@ -207,12 +206,12 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginTop: theme.spacing(2)
   },
-  PatientSignInButton: {
+  OrganizationSignInButton: {
     margin: theme.spacing(2, 0)
   }
 }));
 
-const PatientSignIn = props => {
+const OrganizationSignIn = props => {
   const { history } = props;
 
   const classes = useStyles();
@@ -270,18 +269,14 @@ const PatientSignIn = props => {
     }));
   };
 
-  const handlePatientSignIn = event => {
+  const handleOrganizationSignIn = event => {
     event.preventDefault();
     //history.push('/');
-    var data = {
-      "username" : formState.values.username,
-      "password" : sha1(formState.values.password)
-    };
-    axios.post("http://localhost:5000/api/patient/login/", data)
+    axios.post("http://localhost:5000/api/organization/organization_login/", formState.values)
     .then(function(response){
       console.log(response);
-      localStorage.setItem("username",formState.values.username);
-      history.push("/account");
+      localStorage.setItem("organization_id",response.data.organization_id);
+      history.push("/organization/details");
     })
     .catch(function (response) {
       //handle error
@@ -353,7 +348,7 @@ const PatientSignIn = props => {
             <div className={classes.contentBody}>
               <form
                 className={classes.form}
-                onSubmit={handlePatientSignIn}
+                onSubmit={handleOrganizationSignIn}
               >
                 <Typography
                   className={classes.title}
@@ -398,7 +393,7 @@ const PatientSignIn = props => {
                   variant="outlined"
                 />
                 <Button
-                  className={classes.PatientSignInButton}
+                  className={classes.OrganizationSignInButton}
                   color="primary"
                   disabled={!formState.isValid}
                   fullWidth
@@ -429,8 +424,8 @@ const PatientSignIn = props => {
   );
 };
 
-PatientSignIn.propTypes = {
+OrganizationSignIn.propTypes = {
   history: PropTypes.object
 };
 
-export default withRouter(PatientSignIn);
+export default withRouter(OrganizationSignIn);

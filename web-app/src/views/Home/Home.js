@@ -288,7 +288,7 @@ const Home = props => {
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button size="small" color="primary" href="/account">
+                    <Button size="small" color="primary" href="/organization/login">
                       Login
                     </Button>
                   </CardActions>

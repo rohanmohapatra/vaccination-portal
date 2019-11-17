@@ -50,7 +50,9 @@ def patient_login():
     }
     '''
     json_data = request.get_json(force=True)
+    print(json_data["username"])
     query = get_patient_metadata_with_username(json_data["username"])
+    print(query)
     if query["password"] == json_data["password"]:
         return Response(status=200)
     else:
