@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-client = MongoClient('mongodb://localhost:27017/admin')
+client = MongoClient('mongodb://localhost:27017/cavach')
 db = client.admin
 
 vaccination_details = db.vaccinations

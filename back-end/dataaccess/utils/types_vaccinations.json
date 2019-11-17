@@ -1,0 +1,30 @@
+{
+    "V1" :{
+        "vaccination_id" : "V1",
+	    "vaccination_name" : "BCG"
+    },
+    "V2" : {
+        "vaccination_id" : "V2",
+	    "vaccination_name" : "OPV"
+    },
+    "V3" : {
+        "vaccination_id" : "V3",
+	    "vaccination_name" : "Heptitis - B"
+    },
+    "V4" : {
+        "vaccination_id" : "V4",
+	    "vaccination_name" : "DPT (Diphtheria, Pertussis, and Tetanus)"
+    },
+    "V5" : {
+        "vaccination_id" : "V5",
+	    "vaccination_name" : "Measeles"
+    },
+    "V6" : {
+        "vaccination_id" : "V6",
+	    "vaccination_name" : "Vitamin A"
+    },
+    "V7" : {
+        "vaccination_id" : "V7",
+	    "vaccination_name" : "TT (Tetanus Toxide)"
+    }
+}

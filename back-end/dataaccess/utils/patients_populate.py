@@ -1,10 +1,11 @@
 from pymongo import MongoClient
-client = MongoClient('mongodb://localhost:27017/admin')
-db = client.admin
+client = MongoClient('mongodb://localhost:27017/cavach')
+db = client.cavach
 
 patient_details = db.patients
 
 data1 = {
+	"_id" : "P1",
 	"patient_id" : "P1",
 	"patient_name" : "Rahul",
 	"dob" : "24/11/1997",
@@ -13,10 +14,13 @@ data1 = {
 	"mother_name" : "Sangeeta",
 	"phone_number" : "9823862874",
 	"organization" : ["COL","BGS","APO"],
-	"email_address" : "rahulv@gmail.com"
+	"email_address" : "rahulv@gmail.com",
+	"username" : "rahulv",
+	"password" : "a9993e364706816aba3e25717850c26c9cd0d89d"
 }
 
 data2 = {
+	"_id" : "P2",
 	"patient_id" : "P2",
 	"patient_name" : "Anand",
 	"dob" : "24/11/1997",
@@ -25,10 +29,13 @@ data2 = {
 	"mother_name" : "Anjali",
 	"phone_number" : "9483123874",
 	"organization" : ["MAN","BGS"],
-	"email_address" : "silverbellanand@gmail.com"
+	"email_address" : "silverbellanand@gmail.com",
+	"username" : "anand",
+	"password" : "a9993e364706816aba3e25717850c26c9cd0d89d"
 }
 
 data3 = {
+	"_id" : "P3",
 	"patient_id" : "P3",
 	"patient_name" : "Alan",
 	"dob" : "24/11/1997",
@@ -37,7 +44,9 @@ data3 = {
 	"mother_name" : "Anita",
 	"phone_number" : "9153862874",
 	"organization" : ["COL"],
-	"email_address" : "alanlobo@gmail.com"
+	"email_address" : "alanlobo@gmail.com",
+	"username" : "alanlobo",
+	"password" : "a9993e364706816aba3e25717850c26c9cd0d89d"
 }
 
 
