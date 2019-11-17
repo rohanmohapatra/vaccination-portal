@@ -16,7 +16,8 @@ import {
   SignIn as SignInView,
   PatientSignIn as PatientSignInView,
   NotFound as NotFoundView,
-  Home as HomeView
+  Home as HomeView,
+  Reminders as ReminderView
 } from './views';
 
 const Routes = () => {
@@ -44,6 +45,12 @@ const Routes = () => {
         exact
         layout={MainLayout}
         path="/details"
+      />
+      <RouteWithLayout
+        component={ReminderView}
+        exact
+        layout={MainLayout}
+        path="/reminders"
       />
       <RouteWithLayout
         component={PatientSignInView}

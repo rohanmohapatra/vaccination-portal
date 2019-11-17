@@ -6,6 +6,7 @@ import { Divider, Drawer } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import PeopleIcon from '@material-ui/icons/People';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import ImageIcon from '@material-ui/icons/Image';
@@ -53,6 +54,11 @@ const Sidebar = props => {
       title: 'Records',
       href: '/details',
       icon: <LocalHospitalIcon />
+    },
+    {
+      title: 'Remiders',
+      href: '/reminders',
+      icon: <NotificationsIcon />
     }
   ]
   {/*
