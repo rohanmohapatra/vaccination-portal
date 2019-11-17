@@ -35,6 +35,7 @@ def get_patient_id():
     return jsonify({"patient_id":data["patient_id"]})
 
 @patient_view.route("/get_patient_vaccination_details/<patient_id>", methods=["GET"])
+@cross_origin()
 def get_patient_vaccination_details_controller(patient_id):
     data = get_patient_vaccination_data(patient_id)
     return jsonify(data[patient_id])

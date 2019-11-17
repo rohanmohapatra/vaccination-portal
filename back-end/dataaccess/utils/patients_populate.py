@@ -3,12 +3,12 @@ client = MongoClient('mongodb://localhost:27017/cavach')
 db = client.cavach
 
 patient_details = db.patients
-
+#'17/06/1970', '08/04/1987', '08/05/1970'
 data1 = {
 	"_id" : "P1",
 	"patient_id" : "P1",
 	"patient_name" : "Rahul",
-	"dob" : "24/11/1997",
+	"dob" : "17/06/1970",
 	"city_of_birth" : "Bangalore",
 	"father_name" : "Ajay",
 	"mother_name" : "Sangeeta",
@@ -23,7 +23,7 @@ data2 = {
 	"_id" : "P2",
 	"patient_id" : "P2",
 	"patient_name" : "Anand",
-	"dob" : "24/11/1997",
+	"dob" : "08/04/1987",
 	"city_of_birth" : "Hyderabad",
 	"father_name" : "Deepak",
 	"mother_name" : "Anjali",
@@ -38,7 +38,7 @@ data3 = {
 	"_id" : "P3",
 	"patient_id" : "P3",
 	"patient_name" : "Alan",
-	"dob" : "24/11/1997",
+	"dob" : "08/05/1970",
 	"city_of_birth" : "Chennai",
 	"father_name" : "Jordan",
 	"mother_name" : "Anita",

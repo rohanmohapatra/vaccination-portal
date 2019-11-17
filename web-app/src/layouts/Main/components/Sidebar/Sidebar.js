@@ -56,7 +56,7 @@ const Sidebar = props => {
       icon: <LocalHospitalIcon />
     },
     {
-      title: 'Remiders',
+      title: 'Reminders',
       href: '/reminders',
       icon: <NotificationsIcon />
     }
