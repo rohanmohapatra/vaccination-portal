@@ -26,6 +26,7 @@ def get_personal_details():
     return Response(status=200)
 
 @patient_view.route("/get_patient_id/",methods=["POST"])
+@cross_origin()
 def get_patient_id():
     json_data = request.get_json(force=True)
     data = get_patient_metadata_with_username(json_data["username"])
@@ -37,6 +38,7 @@ def get_patient_vaccination_details_controller(patient_id):
     return jsonify(data[patient_id])
 
 @patient_view.route("/login/", methods=["POST"])
+@cross_origin()
 def patient_login():
     '''
     {
