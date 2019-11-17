@@ -28,7 +28,7 @@ const AccountDetails = props => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'http://localhost:5000/api/patient/get_personal_details/p0001',
+        'http://localhost:5000/api/patient/get_personal_details/'+localStorage.getItem("patient_id"),
       );
       setValues(result.data["organization"]);
       console.log(result.data);
@@ -88,7 +88,7 @@ const AccountDetails = props => {
               </Typography>
                   
                 </Grid>
-              ))};
+              ))}
             
           </Grid>
         </CardContent>

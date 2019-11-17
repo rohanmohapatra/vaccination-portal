@@ -14,7 +14,9 @@ import {
   Settings as SettingsView,
   SignUp as SignUpView,
   SignIn as SignInView,
-  NotFound as NotFoundView
+  PatientSignIn as PatientSignInView,
+  NotFound as NotFoundView,
+  Home as HomeView
 } from './views';
 
 const Routes = () => {
@@ -23,13 +25,31 @@ const Routes = () => {
       <Redirect
         exact
         from="/"
-        to="/account"
+        to="/home"
+      />
+      <RouteWithLayout
+        component ={HomeView}
+        exact
+        layout={MinimalLayout}
+        path="/home"
       />
       <RouteWithLayout
         component={DashboardView}
         exact
         layout={MainLayout}
         path="/dashboard"
+      />
+      <RouteWithLayout
+        component={UserListView}
+        exact
+        layout={MainLayout}
+        path="/details"
+      />
+      <RouteWithLayout
+        component={PatientSignInView}
+        exact
+        layout={MinimalLayout}
+        path="/patient/login"
       />
       <RouteWithLayout
         component={UserListView}

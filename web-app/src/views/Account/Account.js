@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
-
+import axios from 'axios';
 import { AccountProfile, AccountDetails } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -12,7 +12,11 @@ const useStyles = makeStyles(theme => ({
 
 const Account = () => {
   const classes = useStyles();
-
+  useEffect(() => {
+    if(!localStorage.getItem("username")){
+      window.location.href="/";
+    }
+  }, []);
   return (
     <div className={classes.root}>
       <Grid

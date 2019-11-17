@@ -51,7 +51,7 @@ const Sidebar = props => {
     },
     {
       title: 'Records',
-      href: '/users',
+      href: '/details',
       icon: <LocalHospitalIcon />
     }
   ]

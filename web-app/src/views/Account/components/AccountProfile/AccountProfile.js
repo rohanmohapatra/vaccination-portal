@@ -50,8 +50,16 @@ const AccountProfile = props => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const result2 = await axios({
+        method: 'post',
+        url:  'http://localhost:5000/api/patient/get_patient_id/',
+        data: {"username" : localStorage.getItem("username")},
+      });
+      //setProfile(result.data);
+      localStorage.setItem("patient_id",result2.data["patient_id"])
+      //console.log(result.data);
       const result = await axios(
-        'http://localhost:5000/api/patient/get_personal_details/p0001',
+        'http://localhost:5000/api/patient/get_personal_details/'+localStorage.getItem("patient_id"),
       );
       setProfile(result.data);
       console.log(result.data);

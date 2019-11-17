@@ -17,16 +17,22 @@ const useStyles = makeStyles(theme => ({
   },
   signOutButton: {
     marginLeft: theme.spacing(1)
+  },
+  logo:{
+    height: '70px'
   }
 }));
 
 const Topbar = props => {
   const { className, onSidebarOpen, ...rest } = props;
-
+  const { history } = props;
   const classes = useStyles();
 
   const [notifications] = useState([]);
-
+  const handleSignOut = event => {
+    localStorage.clear();
+    window.location.href ="/";
+  };
   return (
     <AppBar
       {...rest}
@@ -36,7 +42,8 @@ const Topbar = props => {
         <RouterLink to="/">
           <img
             alt="Logo"
-            src="/images/logos/logo--white.svg"
+            src="/images/logos/logo-white.png"
+            className={classes.logo}
           />
         </RouterLink>
         <div className={classes.flexGrow} />
@@ -53,6 +60,7 @@ const Topbar = props => {
           <IconButton
             className={classes.signOutButton}
             color="inherit"
+            onClick={handleSignOut}
           >
             <InputIcon />
           </IconButton>
