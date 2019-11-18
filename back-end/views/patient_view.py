@@ -4,6 +4,7 @@ from flask_cors import CORS, cross_origin
 import json
 import time
 import datetime
+from flask import Response
 
 patient_view = Blueprint('patient_view',__name__)
 
@@ -17,10 +18,14 @@ def test_patient():
 def get_personal_details_with_id(patient_id):
     print("View Reached with id{}".format(patient_id))
     data = get_patient_metadata(patient_id)
-    print(type(data))
-    data.pop("username",None)
-    data.pop("password",None)
-    return jsonify(data)
+    res = not bool(data)
+    if res:
+    	return Response(status=401)
+    else:
+    	print(type(data))
+    	data.pop("username",None)
+    	data.pop("password",None)
+    	return jsonify(data), 200
 
 @patient_view.route("/get_personal_details/", methods=['GET'])
 def get_personal_details():
@@ -32,13 +37,18 @@ def get_personal_details():
 def get_patient_id():
     json_data = request.get_json(force=True)
     data = get_patient_metadata_with_username(json_data["username"])
-    return jsonify({"patient_id":data["patient_id"]})
+    data = get_patient_metadata(patient_id)
+	res = not bool(test_dict)
+	if res:
+		Response(status=401)
+	else:
+		return jsonify({"patient_id":data["patient_id"]}), 200
 
 @patient_view.route("/get_patient_vaccination_details/<patient_id>", methods=["GET"])
 @cross_origin()
 def get_patient_vaccination_details_controller(patient_id):
     data = get_patient_vaccination_data(patient_id)
-    return jsonify(data[patient_id])
+    return jsonify(data[patient_id]), 200
 
 @patient_view.route("/login/", methods=["POST"])
 @cross_origin()
