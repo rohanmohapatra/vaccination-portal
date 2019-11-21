@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import validate from 'validate.js';
 import { makeStyles } from '@material-ui/styles';
 import axios from 'axios';
+import clsx from 'clsx';
 import {
   Grid,
   Button,
@@ -16,6 +17,86 @@ import {
 } from '@material-ui/core';
 
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ErrorIcon from '@material-ui/icons/Error';
+import InfoIcon from '@material-ui/icons/Info';
+import CloseIcon from '@material-ui/icons/Close';
+import { amber, green } from '@material-ui/core/colors';
+import Snackbar from '@material-ui/core/Snackbar';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
+import WarningIcon from '@material-ui/icons/Warning';
+
+const variantIcon = {
+  success: CheckCircleIcon,
+  warning: WarningIcon,
+  error: ErrorIcon,
+  info: InfoIcon,
+};
+
+const useStyles1 = makeStyles(theme => ({
+  success: {
+    backgroundColor: green[600],
+  },
+  error: {
+    backgroundColor: theme.palette.error.dark,
+  },
+  info: {
+    backgroundColor: theme.palette.primary.main,
+  },
+  warning: {
+    backgroundColor: amber[700],
+  },
+  icon: {
+    fontSize: 20,
+  },
+  iconVariant: {
+    opacity: 0.9,
+    marginRight: theme.spacing(1),
+  },
+  message: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+}));
+
+function MySnackbarContentWrapper(props) {
+  const classes = useStyles1();
+  const { className, message, onClose, variant, ...other } = props;
+  const Icon = variantIcon[variant];
+
+  return (
+    <SnackbarContent
+      className={clsx(classes[variant], className)}
+      aria-describedby="client-snackbar"
+      message={
+        <span id="client-snackbar" className={classes.message}>
+          <Icon className={clsx(classes.icon, classes.iconVariant)} />
+          {message}
+        </span>
+      }
+      action={[
+        <IconButton key="close" aria-label="close" color="inherit" onClick={onClose}>
+          <CloseIcon className={classes.icon} />
+        </IconButton>,
+      ]}
+      {...other}
+    />
+  );
+}
+
+MySnackbarContentWrapper.propTypes = {
+  className: PropTypes.string,
+  message: PropTypes.string,
+  onClose: PropTypes.func,
+  variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']).isRequired,
+};
+
+const useStyles2 = makeStyles(theme => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+}));
+
 
 const schema = {
   firstName: {
@@ -202,6 +283,21 @@ const Organization = props => {
       }
     }));
   };
+  const [open, setOpen] = React.useState(false);
+  const [eOpen, setEOpen] = React.useState(false);
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+    setEOpen(false);
+  };
+
 
   const handleBack = () => {
     history.goBack();
@@ -222,6 +318,10 @@ const Organization = props => {
     .then(function(response){
       console.log(response);
       history.push("/organization/details");
+      setOpen(true);
+    })
+    .catch(function(response){
+      setEOpen(true);
     })
   };
 
@@ -306,6 +406,30 @@ const Organization = props => {
                   Add Record
                 </Button>
               </form>
+              <Snackbar
+                anchorOrigin={{vertical: 'bottom',horizontal: 'right'}}
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+              >
+                <MySnackbarContentWrapper
+                  onClose={handleClose}
+                  variant="success"
+                  message="Successfully Added!"
+                />
+              </Snackbar>
+              <Snackbar
+                anchorOrigin={{vertical: 'bottom',horizontal: 'right'}}
+                open={eOpen}
+                autoHideDuration={6000}
+                onClose={handleClose}
+              >
+                <MySnackbarContentWrapper
+                  onClose={handleClose}
+                  variant="error"
+                  message="Error Adding Record"
+                />
+              </Snackbar>
             </div>
           </div>
         </Grid>

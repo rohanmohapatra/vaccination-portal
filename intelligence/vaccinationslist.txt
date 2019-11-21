@@ -1,0 +1,7 @@
+BCG : 1
+OPV : 5
+HepB : 4
+DPT : 4
+Measeles : 2
+Vitamin A : 2
+TT : 1

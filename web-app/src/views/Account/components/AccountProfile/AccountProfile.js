@@ -14,6 +14,7 @@ import {
   Button,
   LinearProgress
 } from '@material-ui/core';
+import { amber, green, red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -47,7 +48,8 @@ const AccountProfile = props => {
     avatar: '/images/avatars/avatar_11.png'
   };
   const [profile, setProfile] = useState({});
-
+  const [statusColor, getStatusColor] = useState("");
+  const [status, setStatus] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const result2 = await axios({
@@ -63,12 +65,40 @@ const AccountProfile = props => {
       );
       setProfile(result.data);
       console.log(result.data);
+      const result3 = await axios({
+        method: 'post',
+        url:  'http://localhost:5000/api/patient/predict_patient/',
+        data: {"username" : localStorage.getItem("username")},
+      });
+      switch(result3.data["status"]){
+        case "poor" : 
+              getStatusColor(red[700]);
+              setStatus("Incomplete");
+              break;
+        case "medium":
+              getStatusColor(amber[700]);
+              setStatus("Partial");
+              break;
+        case "complete":
+              getStatusColor(green[600]);
+              setStatus("Completed");
+              break;
+      }
     };
     fetchData();
     console.log(profile);
   }, []);
-
+  var cardBacground = {
+    backgroundColor: statusColor,
+    marginBottom: 40,
+    padding: 10,
+    borderRadius : 50
+  }
   return (
+    <div>
+    <Card style ={cardBacground}>
+      <Typography variant="h3">Vaccination Status:  {status}</Typography>
+    </Card>
     <Card
       {...rest}
       className={clsx(classes.root, className)}
@@ -139,6 +169,7 @@ const AccountProfile = props => {
       </CardContent>
       <Divider />
     </Card>
+    </div>
   );
 };
 

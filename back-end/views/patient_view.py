@@ -3,6 +3,7 @@ from dataaccess.get_functions import *
 from flask_cors import CORS, cross_origin
 import json
 import time
+from intelligence.predict_patient_immunization import get_prediction
 import datetime
 
 patient_view = Blueprint('patient_view',__name__)
@@ -127,4 +128,33 @@ def get_reminder_stream(vaccination_name, vaccination_time):
     time.sleep(5.0)
     s = "Reminder for getting {} on {}".format(vaccination_name, vaccination_time)
     return s
+
+@patient_view.route("/predict_patient/", methods=["POST"])
+@cross_origin()
+def predict_patient():
+    json_data = request.get_json(force=True)
+    print(json_data["username"])
+    data = get_patient_metadata_with_username(json_data["username"])
+    patient_id = data["patient_id"]
+    data = get_patient_vaccination_data(data["patient_id"])
+    vacc_dict = {
+        "V1": 0,
+        "V2" : 0,
+        "V3" : 0,
+        "V4" : 0,
+        "V5" : 0,
+        "V6" : 0,
+        "V7" : 0 
+    }
+    print(vacc_dict)
+    print(data)
+    for each in data[patient_id]:
+        print(each['vaccination_id'])
+        vacc_dict[each["vaccination_id"]] +=1
+    vacc_list =[]
+    for key in vacc_dict:
+        vacc_list.append(vacc_dict[key])
+    x = get_prediction(vacc_list)
+    response = {"status" : x}
+    return jsonify(response)
 
