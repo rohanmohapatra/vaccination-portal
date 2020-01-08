@@ -277,7 +277,7 @@ const PatientSignIn = props => {
       "username" : formState.values.username,
       "password" : sha1(formState.values.password)
     };
-    axios.post("http://localhost:5000/api/patient/login/", data)
+    axios.post("https://cavach-api.herokuapp.com/api/patient/login/", data)
     .then(function(response){
       console.log(response);
       localStorage.setItem("username",formState.values.username);

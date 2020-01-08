@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-client = MongoClient('mongodb://localhost:27017/cavach')
+#client = MongoClient('mongodb://localhost:27017/cavach')
+client = MongoClient("mongodb+srv://cavach:cavach@cavach-drssm.mongodb.net/test?retryWrites=true&w=majority")
 db = client.cavach
 
 patient_details = db.patients

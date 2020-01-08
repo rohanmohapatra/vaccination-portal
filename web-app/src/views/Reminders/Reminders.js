@@ -45,7 +45,7 @@ class Reminders extends Component{
     componentDidMount(){
         var x = this;
         var reminderCards =[];
-        var sse = new EventSource("http://localhost:5000/api/patient/get_remainders/"+localStorage.getItem("patient_id"));
+        var sse = new EventSource("https://cavach-api.herokuapp.com/api/patient/get_remainders/"+localStorage.getItem("patient_id"));
         sse.onmessage = function(event){
             console.log(event.data);
             reminderCards.push(event.data);

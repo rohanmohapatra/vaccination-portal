@@ -54,7 +54,7 @@ const UsersTable = props => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'http://localhost:5000/api/patient/get_patient_vaccination_details/'+localStorage.getItem("patient_id"),
+        'https://cavach-api.herokuapp.com/api/patient/get_patient_vaccination_details/'+localStorage.getItem("patient_id"),
       );
       setUsers(result.data);
       console.log(result.data);

@@ -248,14 +248,14 @@ const Organization = props => {
     const fetchData = async () => {
       const result2 = await axios({
         method: 'post',
-        url:  'http://localhost:5000/api/patient/get_patient_id/',
+        url:  'https://cavach-api.herokuapp.com/api/patient/get_patient_id/',
         data: {"username" : localStorage.getItem("username")},
       });
       //setProfile(result.data);
       localStorage.setItem("patient_id",result2.data["patient_id"])
       //console.log(result.data);
       const result = await axios(
-        'http://localhost:5000/api/patient/get_personal_details/'+localStorage.getItem("patient_id"),
+        'https://cavach-api.herokuapp.com/api/patient/get_personal_details/'+localStorage.getItem("patient_id"),
       );
       setProfile(result.data);
       console.log(result.data);
@@ -314,7 +314,7 @@ const Organization = props => {
       "date_given" : date[2]+"/"+date[1]+"/"+date[0]
     }	
     console.log(date[2]+"/"+date[1]+"/"+date[0]);
-    axios.post("http://localhost:5000/api/organization/add_patient_vaccination_data", data)
+    axios.post("https://cavach-api.herokuapp.com/api/organization/add_patient_vaccination_data", data)
     .then(function(response){
       console.log(response);
       history.push("/organization/details");
