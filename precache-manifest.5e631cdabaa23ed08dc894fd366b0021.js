@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "59491f80f491bd4f2e380586815c5e66",
+    "revision": "24ac6dda861423f4283b217a819ed324",
     "url": "/vaccination-portal/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vaccination-portal/static/css/2.fa4a79a6.chunk.css"
   },
   {
-    "revision": "98fa807fc359b954868a",
+    "revision": "02d05b4986bc32888077",
     "url": "/vaccination-portal/static/css/main.879281ec.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vaccination-portal/static/js/2.eaeb32a0.chunk.js"
   },
   {
-    "revision": "98fa807fc359b954868a",
-    "url": "/vaccination-portal/static/js/main.7ac1df4a.chunk.js"
+    "revision": "02d05b4986bc32888077",
+    "url": "/vaccination-portal/static/js/main.134b038b.chunk.js"
   },
   {
     "revision": "5d454f1007dd288f2d73",
