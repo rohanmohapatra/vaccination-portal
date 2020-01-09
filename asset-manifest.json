@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/vaccination-portal/static/css/main.879281ec.chunk.css",
-    "main.js": "/vaccination-portal/static/js/main.61d536d0.chunk.js",
-    "main.js.map": "/vaccination-portal/static/js/main.61d536d0.chunk.js.map",
+    "main.js": "/vaccination-portal/static/js/main.e5acc417.chunk.js",
+    "main.js.map": "/vaccination-portal/static/js/main.e5acc417.chunk.js.map",
     "runtime-main.js": "/vaccination-portal/static/js/runtime-main.e4434189.js",
     "runtime-main.js.map": "/vaccination-portal/static/js/runtime-main.e4434189.js.map",
     "static/css/2.fa4a79a6.chunk.css": "/vaccination-portal/static/css/2.fa4a79a6.chunk.css",
     "static/js/2.eaeb32a0.chunk.js": "/vaccination-portal/static/js/2.eaeb32a0.chunk.js",
     "static/js/2.eaeb32a0.chunk.js.map": "/vaccination-portal/static/js/2.eaeb32a0.chunk.js.map",
     "index.html": "/vaccination-portal/index.html",
-    "precache-manifest.2712de23a0e77c362d28142d69522eea.js": "/vaccination-portal/precache-manifest.2712de23a0e77c362d28142d69522eea.js",
+    "precache-manifest.3d5f866cc6b292f135e2276c6c48e2cd.js": "/vaccination-portal/precache-manifest.3d5f866cc6b292f135e2276c6c48e2cd.js",
     "service-worker.js": "/vaccination-portal/service-worker.js",
     "static/css/2.fa4a79a6.chunk.css.map": "/vaccination-portal/static/css/2.fa4a79a6.chunk.css.map",
     "static/css/main.879281ec.chunk.css.map": "/vaccination-portal/static/css/main.879281ec.chunk.css.map"
@@ -19,6 +19,6 @@
     "static/css/2.fa4a79a6.chunk.css",
     "static/js/2.eaeb32a0.chunk.js",
     "static/css/main.879281ec.chunk.css",
-    "static/js/main.61d536d0.chunk.js"
+    "static/js/main.e5acc417.chunk.js"
   ]
 }
